@@ -1,0 +1,35 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:h="http://java.sun.com/jsf/html">
+<h:head>
+	<link type="text/css" rel="stylesheet" href="./resources/datatable.css" />
+	<script type="text/javascript" src="./resources/datatable.js"></script>
+</h:head>
+<h:body>
+	<h:outputStylesheet name="datatable.css" />
+	<h:form id="form">
+    <p:dataTable var="customer" value="#{customerBean.lazyModel}" paginator="true" rows="10"
+                 paginatorTemplate="{RowsPerPageDropdown} {FirstPageLink} {PreviousPageLink} {CurrentPageReport} {NextPageLink} {LastPageLink}"
+                 rowsPerPageTemplate="5,10,15" selectionMode="single" id="customerTable" lazy="true">
+        <p:column headerText="Name" sortBy="#{customer.name}" filterBy="#{customer.name}">
+            <h:outputText value="#{customer.name}" />
+        </p:column>
+        <p:column headerText="Phone" sortBy="#{customer.phone}" filterBy="#{customer.phone}">
+            <h:outputText value="#{customer.phone}" />
+        </p:column>
+        <p:column headerText="Company" sortBy="#{customer.company}" filterBy="#{customer.company}">
+            <h:outputText value="#{customer.company}" />
+        </p:column>
+        <p:column headerText="IBAN" sortBy="#{customer.IBAN}" filterBy="#{customer.IBAN}">
+            <h:outputText value="#{customer.IBAN}" />
+        </p:column>
+    </p:dataTable>
+
+</h:form>
+
+</h:body>
+</html>
